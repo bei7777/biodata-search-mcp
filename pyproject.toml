@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "biodata-search-mcp"
+version = "0.2.0"
+description = "Search public biological databases and retrieve records by identifier with MCP"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx[socks]>=0.28.1,<0.29",
+  "mcp>=1.17,<2",
+  "pydantic>=2.11,<3",
+]
+
+[project.scripts]
+biodata-search-mcp = "biodata_search_mcp.server:main"
+
+[project.urls]
+Repository = "https://github.com/bei7777/biodata-search-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/biodata_search_mcp"]
