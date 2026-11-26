@@ -4,11 +4,13 @@ BioData Search 在 NGDC、NCBI、Europe PMC、UniProtKB 和 RCSB PDB 中检索�
 
 ## 在 DeepSeek Harness 中安装
 
-在装有 `uvx` 的环境中运行以下命令，将 npm 插件加入 DSH 的 Web 配置。终端界面可将 `web` 改为 `tui`。[DSH 插件要求与示例](https://github.com/bei7777/dsh-plugin-biodata-search)
+桌面 App 在 **Plugins → Add plugin** 中安装 `github:bei7777/dsh-plugin-biodata-search#v0.2.1`。插件需要 DSH 0.2.2-rc.5 或更高版本及 `uvx`。通过终端安装时，先完全退出 App，并确认 `dsh --version` 与 App 版本一致。[DSH 插件要求与示例](https://github.com/bei7777/dsh-plugin-biodata-search)
 
 ```sh
-dsh plugin --profile web add dsh-plugin-biodata-search
+dsh plugin --profile desktop add github:bei7777/dsh-plugin-biodata-search#v0.2.1
 ```
+
+Web 界面使用 `web` profile，终端界面使用 `tui` profile，分别替换命令中的 `desktop`。插件使用宿主自带的 MCP 客户端。桌面进程无法找到 `uvx` 时，可在插件的 MCP 配置 `env` 中设置 `BIODATA_SEARCH_UVX` 为其绝对路径。
 
 ## 连接 MCP 客户端
 
